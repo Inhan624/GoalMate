@@ -1,0 +1,52 @@
+.home {
+  background-color: #e6d2bf;
+}
+.container {
+  min-width: 370px;
+  background-color: #e6d2bf;
+  border-radius: 16px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column; /*세로로 두고 싶다*/
+}
+.fi {
+  margin: 5px;
+  margin-bottom: 20px;
+}
+.items {
+  display: flex;
+  gap: 3%;
+}
+.item {
+  padding: 20px;
+  padding-top: 20px;
+  border-radius: 16px;
+  min-height: 150px;
+  width: 100%;
+  min-width: 50px;
+  background-color: #FFFFFF;
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  margin-top: 10px;
+
+  width: 100%;
+  background-color: #f8f1e9;
+  border-top: 1px solid #e6d2bf;
+}
+
+footer p {
+  margin-left: 40px;
+}
+
+
+h4 {
+  margin: 0;
+  font-size: 20px;
+}
+
+html {
+  margin: 0;
+}

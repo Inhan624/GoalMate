@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>목표</title>
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/pages/goal.css" />
+  </head>
+  <body>
+    <nav>
+      <ul>
+        <a href="/index.html"><li class="home">홈</li></a>
+        <a href="/todo.html"><li class="todo">To do</li></a>
+        <a href="/calendar.html"><li class="calendar">캘린더</li></a>
+        <a href="/goal.html"><li class="goal">목표</li></a>
+        <a href="/login.html"><li class="login">로그인</li></a>
+      </ul>
+    </nav>
+    <main>
+      <div class="screen">
+        <h2>목표</h2>
+        <div class="addButton">
+          <button id="goalAdd">목표 추가하기</button>
+        </div>
+        <div id="goalModal" class="modal">
+          <div class="modal-content">
+            <h3>새 목표 추가</h3>
+
+            <input type="text" id="goalName" placeholder="목표 이름" />
+
+            <label>시작일</label>
+            <input type="date" id="startDate" />
+
+            <label>종료일</label>
+            <input type="date" id="endDate" />
+
+            <input type="text" id="subGoalInput" placeholder="세부 목표 입력" />
+            <button id="addSubGoal">세부목표 추가</button>
+
+            <ul id="subGoalList"></ul>
+
+            <button id="saveGoal">추가</button>
+            <!--저장기능을 위한..-->
+          </div>
+        </div>
+        <div id="goalContainer"></div>
+        <!--추가 됨 JS 확인-->
+      </div>
+    </main>
+    <script src="/js/goal.js"></script>
+  </body>
+</html>

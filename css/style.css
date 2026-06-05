@@ -1,0 +1,142 @@
+@font-face {
+    font-family: 'Suit';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_suit@1.0/SUIT-Thin.woff2') format('woff2');
+    font-weight: 100;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Suit';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_suit@1.0/SUIT-ExtraLight.woff2') format('woff2');
+    font-weight: 200;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Suit';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_suit@1.0/SUIT-Light.woff2') format('woff2');
+    font-weight: 300;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Suit';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_suit@1.0/SUIT-Regular.woff2') format('woff2');
+    font-weight: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Suit';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_suit@1.0/SUIT-Medium.woff2') format('woff2');
+    font-weight: 500;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Suit';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_suit@1.0/SUIT-SemiBold.woff2') format('woff2');
+    font-weight: 600;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Suit';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_suit@1.0/SUIT-Bold.woff2') format('woff2');
+    font-weight: 700;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Suit';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_suit@1.0/SUIT-ExtraBold.woff2') format('woff2');
+    font-weight: 800;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Suit';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_suit@1.0/SUIT-Heavy.woff2') format('woff2');
+    font-weight: 900;
+    font-display: swap;
+}
+
+
+
+/* 폰트 */
+body {
+  font-family: 'Suit';
+  color: #977E6D;
+  margin: 0;
+  display: flex;
+}
+h2 {
+  font-size: 32px;
+}
+p {
+  font-size: 16px;
+}
+
+/* 네비게이션 */
+nav {
+  width: 200px;
+  height: 100%;
+  background-color:  #F8F1E9;
+  border-right: 1px solid  #E6D2BF;
+  min-width: 200px;
+  padding:0;
+  position: fixed;
+  z-index: 900;
+}
+nav ul {
+  list-style: none; /*리스트 점 없애기*/
+  left: 0; /* 왼쪽에 붙히기 */
+  position: fixed;
+  margin: 0;
+  width: 200px;
+  padding: 0;
+}
+
+nav li {
+  padding: 17px; /*리스트끼리 사이 벌리기*/
+  cursor: pointer;
+}
+
+nav a {
+  color: #977E6D;
+  text-decoration: none; /*밑줄 없애기*/
+  font-size: 16px;
+  width: 100%;
+}
+
+nav ul a:hover {
+  background: #eee;
+}
+/*배경 색상*/
+body {
+  background-color: #F8F1E9;
+  margin: 0;
+  display: flex;
+  overflow-x: hidden;
+}
+
+main {
+  margin-left: 200px;
+  width: 100%;
+}
+.screen {
+  margin: 40px;
+}
+button {
+  padding: 12px;
+  border: none;
+  border-radius: 17px;
+  cursor: pointer;
+  background-color: #745F47;
+  color: #E6D2BF;
+}
+input {
+  padding: 12px;
+  border: 1px solid #745F47;
+  border-radius: 17px;
+}
