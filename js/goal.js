@@ -1,3 +1,4 @@
+// html의 요소 불러오기
 const goalAdd = document.getElementById("goalAdd");
 const goalModal = document.getElementById("goalModal");
 
@@ -14,18 +15,19 @@ const subGoalList = document.getElementById("subGoalList");
 // 세부 목표들을 저장할 배열
 let subGoals = [];
 
-
 // 카드 생성 함수
 function createGoalCard(goal) {
-    const card = document.createElement("div");
+    const card = document.createElement("div"); // 새 div 만들기
     card.classList.add("goal-card");
 
     let subGoalHTML = "";
 
+    // subGoalHTML에 세부 목표 li로 넣기
     goal.todos.forEach(todo => {
-        subGoalHTML += `<li>${todo}</li>`;
+        subGoalHTML += `<li>${todo}</li>`; // 반복
     });
 
+    // card 구성
     card.innerHTML = `
         <h3>${goal.name}</h3>
         <p>${goal.start} ~ ${goal.end}</p>
@@ -36,6 +38,7 @@ function createGoalCard(goal) {
         </ul>
     `;
 
+    // card를 goalContainer 안에 추가하기
     goalContainer.appendChild(card);
 }
 
