@@ -20,7 +20,43 @@
     <main>
       <div class="screen">
         <h2>To do</h2>
+        <div class="addButton">
+          <button id="openModalBtn">To Do 추가하기</button>
+        </div>
+
+        <!-- 모달 -->
+        <div id="todoModal" class="modal">
+          <div class="modal-content">
+            <h3>To Do 추가</h3>
+
+            <label>To Do</label>
+            <input
+              type="text"
+              id="todoInput"
+              placeholder="할 일을 입력하세요"
+            />
+
+            <label>목표</label>
+            <select id="goalSelect">
+              <option value="">없음</option>
+            </select>
+
+            <label>중요도</label>
+            <select name="importance" id="importance">
+              <option value="🔴">🔴</option>
+              <option value="🟡">🟡</option>
+              <option value="🟢">🟢</option>
+            </select>
+
+            <button id="saveTodo">추가</button>
+            <button id="closeModalBtn">닫기</button>
+          </div>
+        </div>
+
+        <!-- To Do 목록 -->
+        <div id="todoContainer"></div>
       </div>
     </main>
+    <script src="./js/todo.js"></script>
   </body>
 </html>
