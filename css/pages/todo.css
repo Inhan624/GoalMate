@@ -1,36 +1,191 @@
+/* 현재 페이지 표시 */
 .todo {
-  background-color: #E6D2BF;
+  background-color: #e6d2bf;
 }
+
+/* 추가 버튼 */
 .addButton {
   text-align: right;
+  margin-bottom: 20px;
 }
+
+/* ======================
+   달성률
+====================== */
+
+#progressText {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+/* ======================
+   목표 그룹
+====================== */
+
+.goal-group {
+  background-color: white;
+
+  border-radius: 20px;
+
+  padding: 20px;
+
+  margin-bottom: 20px;
+
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.goal-title {
+  margin: 0 0 15px 0;
+
+  color: #745f47;
+
+  border-bottom: 1px solid #e6d2bf;
+
+  padding-bottom: 10px;
+}
+
+/* ======================
+   Todo 카드
+====================== */
+
+.todo-card {
+  padding: 12px 0;
+}
+
+.todo-item {
+  display: flex;
+
+  align-items: center;
+
+  gap: 12px;
+}
+
+/* ======================
+   체크박스
+====================== */
+
+.doneCheck {
+  width: 24px;
+
+  height: 24px;
+
+  cursor: pointer;
+
+  flex-shrink: 0;
+}
+
+/* ======================
+   중요도
+====================== */
+
+.importance {
+  font-size: 20px;
+}
+
+/* ======================
+   할 일 텍스트
+====================== */
+
+.todo-text {
+  flex: 1;
+
+  font-size: 16px;
+
+  word-break: break-word;
+}
+
+.completed {
+  text-decoration: line-through;
+
+  opacity: 0.5;
+}
+
+/* ======================
+   버튼
+====================== */
+
+.editBtn {
+  background-color: #745f47;
+
+  color: white;
+
+  border: none;
+
+  border-radius: 10px;
+
+  padding: 8px 14px;
+
+  cursor: pointer;
+}
+
+.editBtn:hover {
+  opacity: 0.9;
+}
+
+/* ======================
+   모달
+====================== */
+
 .modal {
-    display: none; /* 처음에는 숨김 */
+  display: none;
 
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+  position: fixed;
 
-    background-color: rgba(0,0,0,0.5);
+  top: 0;
+  left: 0;
 
-    justify-content: center;
-    align-items: center;
+  width: 100%;
+  height: 100%;
+
+  background-color: rgba(0, 0, 0, 0.5);
+
+  justify-content: center;
+
+  align-items: center;
+
+  z-index: 1000;
 }
 
 .modal-content {
-    background: white;
-    width: 400px;
-    padding: 20px;
-    border-radius: 15px;
+  background: white;
 
-    display: flex;
-    flex-direction: column;
+  width: 400px;
+
+  max-width: 90%;
+
+  padding: 25px;
+
+  border-radius: 20px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 12px;
+}
+
+.modal-content input,
+.modal-content select {
+  width: 100%;
+
+  box-sizing: border-box;
 }
 
 #closeModalBtn {
-    float: right;
-    font-size: 30px;
-    cursor: pointer;
+  background-color: #999;
+}
+
+/* ======================
+   반응형
+====================== */
+
+@media (max-width: 768px) {
+  .todo-item {
+    flex-wrap: wrap;
+  }
+
+  .editBtn {
+    width: 100%;
+  }
 }
