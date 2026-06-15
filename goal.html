@@ -25,7 +25,27 @@
         </div>
         <div id="goalModal" class="modal">
           <div class="modal-content">
-            <h3>새 목표 추가</h3>
+            <div
+              class="modal-header"
+              style="
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+              "
+            >
+              <h3 id="modalTitle">새 목표 추가</h3>
+              <button
+                id="closeModal"
+                style="
+                  background: none;
+                  border: none;
+                  font-size: 20px;
+                  cursor: pointer;
+                "
+              >
+                &times;
+              </button>
+            </div>
 
             <input type="text" id="goalName" placeholder="목표 이름" />
 
@@ -41,7 +61,6 @@
             <ul id="subGoalList"></ul>
 
             <button id="saveGoal">추가</button>
-            <!--저장기능을 위한..-->
           </div>
         </div>
         <div id="goalContainer"></div>

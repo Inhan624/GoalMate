@@ -61,3 +61,14 @@
 .goal-card ul{
     padding-left: 20px;
 }
+
+#cancelBtn {
+  background-color: red;
+}
+#cancelBtn:hover {
+  background-color: rgb(178, 0, 0);
+}
+
+.card-buttons {
+  align-items: right;
+}

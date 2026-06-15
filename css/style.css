@@ -135,6 +135,10 @@ button {
   background-color: #745F47;
   color: #E6D2BF;
 }
+button:hover {
+  background-color: #605145;
+}
+
 input {
   padding: 12px;
   border: 1px solid #745F47;
