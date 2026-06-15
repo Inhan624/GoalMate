@@ -80,7 +80,8 @@ function createTodoCard(todo) {
       >
 
       <span class="importance">
-        ${todo.importance}
+        ${todo.importance === "none" ? "" : todo.importance}
+				
       </span>
 
       <span class="todo-text ${todo.done ? "completed" : ""}">
@@ -93,6 +94,7 @@ function createTodoCard(todo) {
 
     </div>
   `;
+  // 없음 선택했을때 아예 중요도 표시를 하지 않음
 
   // =========================
   // 체크박스
@@ -170,7 +172,7 @@ function renderTodos() {
 
     group.innerHTML = `
       <h3 class="goal-title">
-        🎯 ${goalName}
+        ${goalName}
       </h3>
     `;
 
