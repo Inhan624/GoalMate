@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>달력</title>
+    <title>캘린더</title>
     <link rel="stylesheet" href="./css/style.css" />
     <link rel="stylesheet" href="./css/pages/calendar.css" />
   </head>
@@ -20,7 +20,32 @@
     <main>
       <div class="screen">
         <h2>캘린더</h2>
+        <section class="calendar-wrap">
+          <div class="calendar-toolbar">
+            <button type="button" id="prevMonth" class="month-btn">&lt;</button>
+            <h3 id="calendarTitle">월</h3>
+            <button type="button" id="nextMonth" class="month-btn">&gt;</button>
+          </div>
+
+          <div class="weekdays">
+            <span>일</span>
+            <span>월</span>
+            <span>화</span>
+            <span>수</span>
+            <span>목</span>
+            <span>금</span>
+            <span>토</span>
+          </div>
+
+          <div id="calendarGrid" class="calendar-grid"></div>
+        </section>
+
+        <section class="selected-day">
+          <h3 id="selectedDateTitle"></h3>
+          <ul id="selectedTodoList"></ul>
+        </section>
       </div>
     </main>
+    <script src="./js/calendar.js"></script>
   </body>
 </html>
