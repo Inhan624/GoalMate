@@ -40,7 +40,7 @@
     gap: 20px;
 }
 
-#goalContainer div {
+#goalContainer .goal-card {
     background-color: white;
 
     padding: 20px;
@@ -50,22 +50,16 @@
     box-shadow: 0 0 10px rgba(0,0,0,0.2);
 }
 
-.goal-card{
-    background: white;
-    padding: 20px;
-    border-radius: 15px;
-    margin-bottom: 20px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-}
 
 .goal-card ul{
     padding-left: 20px;
 }
 
-#cancelBtn {
-  background-color: red;
+.cancelBtn {
+  color: rgb(255, 211, 211);
+  background-color: rgb(221, 57, 57);
 }
-#cancelBtn:hover {
+.cancelBtn:hover {
   background-color: rgb(178, 0, 0);
 }
 

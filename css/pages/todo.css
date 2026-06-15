@@ -105,10 +105,9 @@
    버튼
 ====================== */
 
+/*수정 버튼 한정 디자인*/
 .editBtn {
   background-color: #745f47;
-
-  color: white;
 
   border: none;
 
