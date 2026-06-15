@@ -40,7 +40,7 @@ function createGoalCard(goal, index) {
         </ul>
         <div class="card-buttons">
             <button onclick="openEditModal(${index})" style="margin-right: 5px;">수정</button>
-            <button id="cancelBtn" onclick="deleteGoal(${index})">삭제</button>
+            <button class="cancelBtn" onclick="deleteGoal(${index})">삭제</button>
         </div>
     `;
 
