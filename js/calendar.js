@@ -204,3 +204,88 @@ function renderCalendar() {
     calendarGrid.appendChild(cell);
   }
 }
+
+// 아래 선택된 날짜의 할 일 출력
+function renderSelectedDate() {
+  const todos = getTodosForDate(selectedDate);
+
+  selectedDateTitle.textContent = formatKoreanDate(selectedDate);
+  selectedTodoList.innerHTML = "";
+
+  // 할 일이 없을 때
+  if (todos.length === 0) {
+    const empty = document.createElement("li");
+
+    empty.classList.add("empty-message");
+    empty.textContent = "등록된 할 일이 없습니다.";
+
+    selectedTodoList.appendChild(empty);
+
+    return;
+  }
+
+  // 할 일 출력
+  todos.forEach((todo) => {
+    const li = document.createElement("li");
+
+    const check = document.createElement("input");
+    check.type = "checkbox";
+    check.checked = Boolean(todo.done);
+
+    // 체크 상태 변경
+    check.addEventListener("change", (e) => {
+      const savedTodos = getSavedTodos();
+
+      const target = savedTodos.find((item) => item.id === todo.id);
+
+      if (target) {
+        target.done = e.target.checked;
+
+        saveTodos(savedTodos);
+
+        renderCalendar();
+      }
+    });
+
+    const text = document.createElement("span");
+    text.textContent = todo.text;
+
+    li.append(check, text);
+
+    selectedTodoList.appendChild(li);
+  });
+}
+
+// 이전 달 버튼
+prevMonth.addEventListener("click", () => {
+  viewMonth--;
+
+  if (viewMonth < 0) {
+    viewMonth = 11;
+    viewYear--;
+  }
+
+  selectedDate = formatDate(new Date(viewYear, viewMonth, 1));
+
+  renderCalendar();
+  renderSelectedDate();
+});
+
+// 다음 달 버튼
+nextMonth.addEventListener("click", () => {
+  viewMonth++;
+
+  if (viewMonth > 11) {
+    viewMonth = 0;
+    viewYear++;
+  }
+
+  selectedDate = formatDate(new Date(viewYear, viewMonth, 1));
+
+  renderCalendar();
+  renderSelectedDate();
+});
+
+// 최초 실행
+renderCalendar();
+renderSelectedDate();

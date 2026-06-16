@@ -26,8 +26,8 @@
   min-width: 80px;
   text-align: center;
   color: #977e6d;
-  font-size: 32px;
-  font-weight: 700;
+  font-size: 28px;
+  font-weight: 500;
 }
 
 .month-btn {
@@ -36,30 +36,31 @@
   color: #977e6d;
   border-radius: 0;
   font-size: 32px;
-  font-weight: 700;
-  line-height: 1;
+  font-weight: 400;
+  line-height: 1; /*행간*/
 }
 
 .month-btn:hover {
   background: transparent;
+  /*버튼 뒤에 배경 생기는거 막기(없애는거)*/
   color: #745f47;
 }
 
 .weekdays {
   display: grid;
-  grid-template-columns: repeat(7, 1fr);
+  grid-template-columns: repeat(7, 1fr); /*캘린더 형태*/
   margin: 0 0 10px 0;
   color: #977e6d;
   font-size: 24px;
-  font-weight: 700;
+  font-weight: 400;
   text-align: center;
 }
 
 .calendar-grid {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
-  border-top: 2px solid #9a7d67;
-  border-left: 2px solid #9a7d67;
+  border-top: 1px solid #9a7d67;
+  border-left: 1px solid #9a7d67;
 }
 
 .calendar-cell {
@@ -67,15 +68,17 @@
   min-height: 135px;
   padding: 14px 12px;
   box-sizing: border-box;
-  border-right: 2px solid #9a7d67;
-  border-bottom: 2px solid #9a7d67;
-  border-radius: 0;
+  border-right: 1px solid #9a7d67;
+  border-bottom: 1px solid #9a7d67;
+  border-radius: 0; /*각진 모양을 위해*/
   background-color: #e7cfba;
   color: #977e6d;
   cursor: pointer;
 }
 
-.calendar-cell:hover,
+.calendar-cell:hover{
+  background-color: rgb(216, 187, 153)
+}
 .calendar-cell.selected {
   background-color: #f8f1e9;
 }
@@ -84,10 +87,12 @@
   cursor: default;
 }
 
+/*날짜 없는 칸도 색 그대로*/
 .calendar-cell:disabled {
   opacity: 1;
-}
+} 
 
+/*날짜 없는 칸은 호버돼도 안된것처럼 보이게 하기*/
 .calendar-cell.empty:hover {
   background-color: #e7cfba;
 }
@@ -96,9 +101,11 @@
   display: block;
   text-align: right;
   font-size: 22px;
-  font-weight: 600;
+  font-weight: 400;
 }
 
+
+/*할 일 개수 표시용*/
 .todo-dots {
   display: flex;
   gap: 5px;
@@ -109,21 +116,21 @@
 .todo-dot {
   width: 7px;
   height: 7px;
-  border-radius: 50%;
+  border-radius: 16px;
   background-color: #745f47;
 }
 
 .selected-day {
   margin-top: 60px;
   padding-top: 25px;
-  border-top: 2px solid #9a7d67;
+  border-top: 1.5px solid #9a7d67;
   color: #977e6d;
 }
 
 .selected-day h3 {
   margin: 0 0 18px 10px;
   font-size: 34px;
-  font-weight: 700;
+  font-weight: 500;
 }
 
 .selected-day ul {
@@ -137,21 +144,23 @@
   align-items: center;
   gap: 12px;
   margin-bottom: 18px;
-  font-size: 30px;
-  font-weight: 600;
+  font-size: 23px;
+  font-weight: 300;
 }
 
 .selected-day input[type="checkbox"] {
   width: 26px;
   height: 26px;
   padding: 0;
-  accent-color: #111;
+  accent-color: #9a7d67;
   flex-shrink: 0;
 }
 
-.empty-message {
+/*empty-message만 해두면 글씨 두께 적용이 안돼서 이렇게 해놓음*/
+.selected-day li.empty-message {
   margin-left: 10px;
   font-size: 22px;
+  font-weight: 300;
   opacity: 0.75;
 }
 
