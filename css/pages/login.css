@@ -36,7 +36,7 @@ body {
 /*이메일, 비밀번호 칸*/
 .login-form input {
   padding: 12px;
-  border: 1px solid #E6D2BF;
+  border: 1px solid #e6d2bf;
   border-radius: 17px;
 }
 
@@ -45,4 +45,9 @@ body {
   border: none;
   border-radius: 17px;
   cursor: pointer;
+}
+
+.letsGoHome {
+  color: #745f47;
+  text-align: center;
 }
