@@ -10,6 +10,64 @@ const todoModal = document.getElementById("todoModal");
 const todoInput = document.getElementById("todoInput");
 const saveTodo = document.getElementById("saveTodo");
 const todoContainer = document.getElementById("todoContainer");
+const isDailyInput = document.getElementById("isDailyInput");
+const todayDate = document.getElementById("todayDate");
+
+// =========================
+// 날짜
+// =========================
+
+function formatDate(date) {
+  const year = date.getFullYear();
+  const month = String(date.getMonth() + 1).padStart(2, "0");
+  const day = String(date.getDate()).padStart(2, "0");
+
+  return `${year}-${month}-${day}`;
+}
+
+function formatKoreanDate(dateText) {
+  const [, month, day] = dateText.split("-");
+
+  return `${Number(month)}월 ${Number(day)}일`;
+}
+
+const currentDateText = formatDate(new Date());
+
+if (todayDate) {
+  todayDate.textContent = formatKoreanDate(currentDateText);
+}
+
+function getTodoDate(todo) {
+  if (todo.date || todo.dueDate || todo.todoDate) {
+    return todo.date || todo.dueDate || todo.todoDate;
+  }
+
+  if (typeof todo.id === "number") {
+    const dateFromId = new Date(todo.id);
+
+    if (!Number.isNaN(dateFromId.getTime())) {
+      return formatDate(dateFromId);
+    }
+  }
+
+  return "";
+}
+
+function shouldShowOnToday(todo) {
+  if (todo.isDaily) {
+    const todoDate = getTodoDate(todo);
+
+    return !todoDate || todoDate <= currentDateText;
+  }
+
+  return getTodoDate(todo) === currentDateText;
+}
+
+function getTodayTodos() {
+  const todos = JSON.parse(localStorage.getItem("todos")) || [];
+
+  return todos.filter((todo) => shouldShowOnToday(todo));
+}
 
 // =========================
 // 목표 불러오기
@@ -43,7 +101,7 @@ closeModalBtn.addEventListener("click", () => {
 // =========================
 
 function updateProgress() {
-  const todos = JSON.parse(localStorage.getItem("todos")) || [];
+  const todos = getTodayTodos();
 
   const progressText = document.getElementById("progressText");
 
@@ -133,6 +191,8 @@ function createTodoCard(todo) {
 
     document.getElementById("importance").value = todo.importance;
 
+    isDailyInput.checked = Boolean(todo.isDaily);
+
     // 제목 변경
     modalTitle.textContent = "To Do 수정";
 
@@ -150,7 +210,20 @@ function createTodoCard(todo) {
 function renderTodos() {
   todoContainer.innerHTML = "";
 
-  const todos = JSON.parse(localStorage.getItem("todos")) || [];
+  const todos = getTodayTodos();
+
+  if (todos.length === 0) {
+    const empty = document.createElement("p");
+
+    empty.classList.add("empty-message");
+    empty.textContent = "오늘 등록된 할 일이 없습니다.";
+
+    todoContainer.appendChild(empty);
+
+    updateProgress();
+
+    return;
+  }
 
   const groups = {};
 
@@ -214,6 +287,10 @@ saveTodo.addEventListener("click", () => {
       target.goal = goalSelect.value;
 
       target.importance = document.getElementById("importance").value;
+
+      target.isDaily = isDailyInput.checked;
+
+      target.date = getTodoDate(target) || currentDateText;
     }
   } else {
     // 추가 모드
@@ -225,6 +302,10 @@ saveTodo.addEventListener("click", () => {
       goal: goalSelect.value,
 
       importance: document.getElementById("importance").value,
+
+      isDaily: isDailyInput.checked,
+
+      date: currentDateText,
 
       done: false,
     });
@@ -242,6 +323,8 @@ saveTodo.addEventListener("click", () => {
   goalSelect.value = "";
 
   document.getElementById("importance").value = "none";
+
+  isDailyInput.checked = false;
 
   todoModal.style.display = "none";
 

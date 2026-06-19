@@ -67,7 +67,19 @@ function formatKoreanDate(dateText) {
 function getTodoDate(todo) {
   // date가 있으면 사용하고 없으면 dueDate 사용
   // 그것도 없으면 todoDate 사용
-  return todo.date || todo.dueDate || todo.todoDate || "";
+  if (todo.date || todo.dueDate || todo.todoDate) {
+    return todo.date || todo.dueDate || todo.todoDate;
+  }
+
+  if (typeof todo.id === "number") {
+    const dateFromId = new Date(todo.id);
+
+    if (!Number.isNaN(dateFromId.getTime())) {
+      return formatDate(dateFromId);
+    }
+  }
+
+  return "";
 }
 
 // 특정 날짜에 해당하는 todo인지 판단
@@ -75,9 +87,9 @@ function todoMatchesDate(todo, dateText) {
   // todo의 날짜 가져오기
   const todoDate = getTodoDate(todo);
 
-  // 매일 반복이면 무조건 표시
+  // 매일 반복이면 생성일 이후 날짜에 표시
   if (todo.isDaily) {
-    return true;
+    return !todoDate || dateText >= todoDate;
   }
 
   // 날짜 정보가 존재한다면
