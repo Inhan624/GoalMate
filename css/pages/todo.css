@@ -13,10 +13,26 @@
    달성률
 ====================== */
 
+.today-date {
+  color: #977E6D;
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+
 #progressText {
   font-size: 24px;
   font-weight: 700;
   margin-bottom: 20px;
+}
+
+/*오늘 등록된 할 일이 없습니다 부분*/
+.empty-message {
+  background-color: white;
+  border-radius: 16px;
+  color: #745f47;
+  padding: 20px;
+  text-align: center;
 }
 
 /* ======================
