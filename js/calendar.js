@@ -54,7 +54,7 @@ function formatDate(date) {
   return `${year}-${month}-${day}`;
 }
 
-// yyyy-mm-dd를 "6월 16일" 형태로 변환
+// yyyy-mm-dd를 "m월 d일" 형태로 변환
 function formatKoreanDate(dateText) {
   // 연도는 버리고 월, 일을 분리
   const [, month, day] = dateText.split("-");

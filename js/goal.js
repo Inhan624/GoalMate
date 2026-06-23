@@ -90,10 +90,13 @@ window.addEventListener("click", (e) => {
 
 // 세부 목표 추가 버튼 클릭
 addSubGoal.addEventListener("click", () => {
+    //공백 입력해도 추가 안되게함
     if (subGoalInput.value.trim() === "") return;
 
+    //subGoals에 저장하기
     subGoals.push(subGoalInput.value);
 
+    
     const li = document.createElement("li");
     li.textContent = subGoalInput.value;
     subGoalList.appendChild(li);
