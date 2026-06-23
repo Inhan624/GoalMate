@@ -96,7 +96,7 @@ addSubGoal.addEventListener("click", () => {
     //subGoals에 저장하기
     subGoals.push(subGoalInput.value);
 
-    
+
     const li = document.createElement("li");
     li.textContent = subGoalInput.value;
     subGoalList.appendChild(li);
@@ -165,8 +165,10 @@ saveGoal.addEventListener("click", () => {
     }
 
     // localStorage에 저장 후 화면 갱신
+    // JSON.stringly(goals)는 goals를 JSON 문자열로 ㅂㅏ뀌주는거
     localStorage.setItem("goals", JSON.stringify(goals));
     renderGoals();
+    // 함수 실행
 
     // 모달 닫기 및 초기화
     goalModal.style.display = "none";

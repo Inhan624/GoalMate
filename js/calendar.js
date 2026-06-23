@@ -55,6 +55,7 @@ function formatDate(date) {
 }
 
 // yyyy-mm-dd를 "m월 d일" 형태로 변환
+// 한국식 날자 포멧.
 function formatKoreanDate(dateText) {
   // 연도는 버리고 월, 일을 분리
   const [, month, day] = dateText.split("-");
@@ -67,14 +68,23 @@ function formatKoreanDate(dateText) {
 function getTodoDate(todo) {
   // date가 있으면 사용하고 없으면 dueDate 사용
   // 그것도 없으면 todoDate 사용
+
+  // dueDate는 마감일이구요 todoDate는 할 일을 해야 하는 날짜입니다
   if (todo.date || todo.dueDate || todo.todoDate) {
     return todo.date || todo.dueDate || todo.todoDate;
   }
 
+  // todo.id가 숫자 자료형이면 
   if (typeof todo.id === "number") {
+    // 숫자를 객체로 변환함
     const dateFromId = new Date(todo.id);
 
+    // 올바른 날짜인지 확인
+
+    //dateFromId가 객체일때
+    //!Number.isNaN (숫자가 아닌게 아니다. -> 숫자일때)
     if (!Number.isNaN(dateFromId.getTime())) {
+      //리턴을 해줍니당 날짜를 포맷에 맞게 정리해주는거
       return formatDate(dateFromId);
     }
   }
@@ -219,6 +229,7 @@ function renderCalendar() {
 
 // 아래 선택된 날짜의 할 일 출력
 function renderSelectedDate() {
+  // selectedDate에 있는 할일들을 todos 배열에 저장
   const todos = getTodosForDate(selectedDate);
 
   selectedDateTitle.textContent = formatKoreanDate(selectedDate);
@@ -228,6 +239,7 @@ function renderSelectedDate() {
   if (todos.length === 0) {
     const empty = document.createElement("li");
 
+    //클래스 추가
     empty.classList.add("empty-message");
     empty.textContent = "등록된 할 일이 없습니다.";
 
