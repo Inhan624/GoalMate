@@ -114,6 +114,7 @@ function updateProgress() {
     return;
   }
 
+  // 완료된 할 일 개수 구하기
   const doneCount = todos.filter((todo) => todo.done).length;
 
   // 퍼센트 계산
