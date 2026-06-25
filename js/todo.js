@@ -101,8 +101,10 @@ closeModalBtn.addEventListener("click", () => {
 // =========================
 
 function updateProgress() {
+  // 오늘 할 일 가져오기
   const todos = getTodayTodos();
 
+  // html 화면에서 달성률을 보게 progressText 요소 가져오는거
   const progressText = document.getElementById("progressText");
 
   if (!progressText) return;
@@ -114,6 +116,7 @@ function updateProgress() {
 
   const doneCount = todos.filter((todo) => todo.done).length;
 
+  // 퍼센트 계산
   const percent = Math.round((doneCount / todos.length) * 100);
 
   progressText.textContent = `${percent}%`;

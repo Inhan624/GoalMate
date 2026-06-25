@@ -4,7 +4,7 @@ const password = document.getElementById("password");
 const loginBtn = document.getElementById("loginBtn");
 const form = document.querySelector(".login-form");
 
-// 입력값 확인
+// 입력값 확인 (비어 있는지 비어있지 않은지)
 function checkInput() {
   if (email.value.trim() !== "" && password.value.trim() !== "") {
     loginBtn.disabled = false; // 버튼 사용 가능

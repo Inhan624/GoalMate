@@ -112,7 +112,7 @@
 }
 
 
-/*할 일 개수 표시용*/
+/*할 일 개수 표시용 최대 3개까지만 됨..*/
 .todo-dots {
   display: flex;
   gap: 5px;
@@ -155,6 +155,7 @@
   font-weight: 300;
 }
 
+/*크기 줄어드는거 방지*/
 .selected-day input[type="checkbox"] {
   width: 26px;
   height: 26px;
